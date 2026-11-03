@@ -1,34 +1,13 @@
-# Bioquest feedback task list
+Group member contributions 
 
-**Implementation status as of November 2026.** A code-level check is not a substitute for a student playtest in a browser. See `TESTING.md`.
+Aditya - Made the original marine game for the project. The marine game that was originally made did not work properly based on its code and requirements and a different version was added to the final game. He also worked on a different part of the map (which was not added) and made the document with all the group contributions.
 
-| Peer feedback / requirement | Status | Notes |
-| --- | --- | --- |
-| Game player walks through buildings and water | Implemented in code — browser testing pending | Editable shapes for water, buildings and fountain; paths enforce map boundaries. |
-| Player strays off paths | Implemented in code — browser testing pending | Movement constrained to walkable routes. |
-| Team HQ won't interact | Implemented in code — browser testing pending | Approach marked entrance, press E to open Team HQ dialogue. |
-| Main Research Center doesn't respond | Implemented in code — browser testing pending | Approach marked entrance, press E for research overview dialogue. |
-| Map is not centered | Implemented in code — browser testing pending | Replaced incorrectly stretched raster with vector boundary map, centered in responsive canvas. |
-| Explain map letter markers | Implemented in code — browser testing pending | Number badges now show matching opportunity counts; legend explains them. |
-| Filter selections should be intersection / AND | Implemented in code — browser testing pending | Matches every checkbox selection. Selecting mutually exclusive categories yields no results. |
-| Click counties and show opportunities without losing map | Implemented in code — browser testing pending | Interactive 21-county shapes with adjacent results panel. |
-| Career/path bar has no function | Partial / verify tester intent | Made the career pathway on result screens a clickable step-by-step display; confirm whether the feedback referred to another UI element. |
-| Add imagery and visual details | Partially addressed | Reused campus pixel-art artwork in Home card and improved decoration. No new original illustrations added. |
-| CSS and presentation polish | Implemented in code — browser testing pending | Five-color palette, consistent borders/buttons/cards, map layout, mobile stacking and focus styling. |
-| Preserve quizzes, Team Builder and music | Checked at source/runtime-stub level | Quizzes are byte-for-byte unchanged; music retains continuity between Game and Map. |
+Natalie - She made the pixel art for the game. This included the background of the game such as the entering screen and the different characters in the game. This included drawing the main character and all the different researchers in the questions
 
-## Team contribution areas (as provided)
+Leah - She worked on fixing some of the elements in the game. This included fixing parts of the marine game so that It could work properly. She also combined the code from all of the different documents and combined them to make the website. She also made the home screen
 
-- Matthew — game and map
-- Leah — style and logo
-- Natalie — sprite art
-- Aditya — quizzes for the game
+Matthew - He worked on the home screen and made much of the original game. 
 
-This table lists assigned areas, not a claim that any team member individually implemented the changes in this ZIP.
 
-## Pending QA
+He also made the animations on the main character drawing and made the interactive map of NJ with all the career opportunities.
 
-- Walk every path and entrance in a real browser; fine-tune collision shapes if they don't match the artwork precisely.
-- Check the responsive mobile layout in actual browsers/devices.
-- Verify any opportunity listing with the organization before describing it as currently open.
-- Clarify what the tester meant by “path bar” if it was not the career-pathway result display.
