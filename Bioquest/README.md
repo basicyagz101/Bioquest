@@ -31,7 +31,7 @@ County boundary shapes are embedded in `script.js` for offline operation, derive
 - Matthew: game and map
 - Leah: style and logo
 - Natalie: sprite art
-- Aditya: game quizzes
+- Aditya: game quizzes and constructed the tasks 
 
 ## Check before presenting
 See `TESTING.md` for smoke test instructions, browser behavior, and known limits.
