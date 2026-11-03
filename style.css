@@ -396,7 +396,7 @@ button {
 .mgr .glass{background:rgba(255, 255, 255, .7);color:var(--navy)}
 
 /* TOP-DOWN PIXEL CAMPUS */
-.campus{position:relative;width:100%;aspect-ratio:1278/1024;min-height:360px;max-height:76vh;overflow:hidden;border:4px solid #567792;border-radius:8px;background:#567792 url("assets/backgrounds/biotech-campus-background.png") center/100% 100% no-repeat;image-rendering:pixelated;box-shadow:0 8px 0 #567792;touch-action:pan-y}
+.campus{position:relative;width:100%;aspect-ratio:1278/1024;min-height:360px;max-height:76vh;overflow:hidden;border:4px solid #567792;border-radius:8px;background:#567792 url("biotech-campus-background.png") center/100% 100% no-repeat;image-rendering:pixelated;box-shadow:0 8px 0 #567792;touch-action:pan-y}
 .campus:before{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 3px #D5E2EE66}
 .campus-building{position:absolute;z-index:2;width:19%;height:18%;padding:0;border:2px dashed transparent;background:transparent;color:transparent;text-shadow:none;box-shadow:none;cursor:pointer;border-radius:4px}
 .campus-building:before,.campus-building small{display:none}
@@ -473,7 +473,7 @@ fieldset label{display:block;font-size:.95rem}
 
 @font-face {
   font-family: "BioquestPixel";
-  src: url("assets/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+  src: url("VCR_OSD_MONO_1.001.ttf") format("truetype");
   font-display: swap;
 }
 #game, #game .game-hud, #game .dialogue, #game .quiz-panel,
@@ -538,7 +538,7 @@ body{background:#D5E2EE;color:#567792}
 .note{color:#567792}
 .world{background:#D5E2EE}.ground{background:#B9D2E7}
 .stage .decor .fl{opacity:.14}
-.campus{position:relative;width:100%;aspect-ratio:1024/820;min-height:0;max-height:none;overflow:hidden;border:4px solid #567792;border-radius:4px;background:#D5E2EE url("assets/backgrounds/biotech-campus-background.png") center/100% 100% no-repeat;image-rendering:pixelated;box-shadow:5px 5px 0 #B9D2E7;touch-action:pan-y}
+.campus{position:relative;width:100%;aspect-ratio:1024/820;min-height:0;max-height:none;overflow:hidden;border:4px solid #567792;border-radius:4px;background:#D5E2EE url("biotech-campus-background.png") center/100% 100% no-repeat;image-rendering:pixelated;box-shadow:5px 5px 0 #B9D2E7;touch-action:pan-y}
 .campus:before{box-shadow:inset 0 0 0 3px #B9D2E7}
 .campus-building,.campus-building[data-room]{position:absolute;width:auto!important;height:auto!important;min-width:68px;max-width:15%;left:0;top:0;padding:2px 4px;transform:translate(-50%,-50%);color:#FFFFFF;background:#567792;border:2px solid #FFFFFF;border-radius:0;box-shadow:2px 2px 0 #567792;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:700;line-height:1.2;white-space:normal;cursor:pointer;z-index:3;image-rendering:pixelated}
 .campus-building span{display:block;pointer-events:none}
@@ -604,7 +604,7 @@ body{background:#D5E2EE;color:#567792}
 [role="button"]:focus-visible{outline:3px solid #567792;outline-offset:3px}
 
 /* November refinement: original game artwork and player colors, without changing Opportunities Map. */
-#game .campus{background-color:#153e5a;background-image:url("assets/backgrounds/biotech-campus-background.png");border-color:#18324b;box-shadow:0 6px 0 #193d4b}
+#game .campus{background-color:#153e5a;background-image:url("biotech-campus-background.png");border-color:#18324b;box-shadow:0 6px 0 #193d4b}
 #game .campus-player{filter:drop-shadow(0 2px 0 #173c4d)}
 /* Keep entry labels readable without covering building entrances or blocking movement. */
 #game .campus-building{max-width:12%;min-width:50px;padding:2px 3px;font-size:clamp(8px,.8vw,11px);background:#18324be8;color:#fff;border:1px solid #c4ecff;box-shadow:1px 2px 0 #173c4d}
