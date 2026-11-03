@@ -1,0 +1,650 @@
+/* ==================== GLOBAL STYLES & VARIABLES ==================== */
+:root {
+  --sidebar-blue: #567792;
+  --button-hover-blue: #567792;
+  --bg-gradient-start: #EEEEEE;
+  --bg-gradient-mid: #EEEEEE;
+  --bg-gradient-end: #B9D2E7;
+  --text-white: #FFFFFF;
+  --text-dark: #567792;
+  --sky: #567792;
+  --navy: #567792;
+  --gray: #567792;
+  --white: #FFFFFF;
+  --line: #B9D2E7;
+  --soft: #EEEEEE;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Legend', 'Montserrat', sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  background-color: var(--bg-gradient-start);
+}
+
+h1, h2, h3 {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Persistent Top Navigation Bar for Game & Map Screens */
+.top-app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--sidebar-blue);
+  color: var(--text-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  box-shadow: 0 4px 12px rgba(86, 119, 146, 0.15);
+}
+
+.top-app-nav .nav-brand {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.top-app-nav nav {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.top-app-nav .nav-btn {
+  background: transparent;
+  border: 1.5px solid transparent;
+  color: var(--text-white);
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  font-family: 'Legend', 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.top-app-nav .nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.top-app-nav .nav-btn[aria-current="page"] {
+  background-color: #FFFFFF;
+  color: var(--sidebar-blue);
+  font-weight: 600;
+}
+
+/* Splash Screen */
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .splash-container {
+    flex-direction: row;
+  }
+}
+
+.sidebar {
+  width: 100%;
+  background-color: var(--sidebar-blue);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  box-shadow: 4px 0 15px rgba(86, 119, 146, 0.1);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 25%;
+    min-width: 270px;
+    max-width: 380px;
+    height: 100%;
+    padding: 4rem 2.2rem;
+  }
+}
+
+.mission-text {
+  font-family: 'Legend', 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+.mission-label {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: inline-block;
+  margin-right: 0.35rem;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  background:
+    radial-gradient(circle at 10% 90%, rgba(185, 210, 231, 0.4) 0%, transparent 25%),
+    radial-gradient(circle at 90% 10%, rgba(185, 210, 231, 0.45) 0%, transparent 30%),
+    linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+}
+
+.main-title {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 640px) { .main-title { font-size: 4.5rem; } }
+@media (min-width: 768px) { .main-title { font-size: 5.5rem; } }
+@media (min-width: 1024px) { .main-title { font-size: 6rem; } }
+
+.btn-get-started {
+  display: inline-block;
+  background-color: var(--sidebar-blue);
+  color: var(--text-white);
+  font-family: 'Legend', 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding: 0.65rem 2.8rem;
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(86, 119, 146, 0.25);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-get-started:hover {
+  background-color: var(--button-hover-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(86, 119, 146, 0.35);
+}
+
+/* Home Screen Container */
+.home-container {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 3.5rem 2.5rem 6rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.5rem;
+  background:
+    radial-gradient(circle at 10% 90%, rgba(185, 210, 231, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(185, 210, 231, 0.4) 0%, transparent 50%),
+    linear-gradient(135deg, #EEEEEE 0%, #EEEEEE 50%, #D5E2EE 100%);
+}
+
+.home-header {
+  width: 96%;
+  max-width: 1400px;
+  background-color: var(--sidebar-blue);
+  color: var(--text-white);
+  border-radius: 9999px;
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  box-shadow: 0 6px 16px rgba(86, 119, 146, 0.12);
+  margin-bottom: 0.5rem;
+}
+
+.header-brand {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+}
+
+.tool-nav-banner {
+  background-color: var(--text-white);
+  padding: 0.8rem 5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(86, 119, 146, 0.06);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tool-nav-banner h2 {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--sidebar-blue);
+  letter-spacing: 0.01em;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  width: 96%;
+  max-width: 1350px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 820px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feature-card {
+  background-color: var(--sidebar-blue);
+  color: var(--text-white);
+  border-radius: 8px;
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(86, 119, 146, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(86, 119, 146, 0.18);
+}
+
+.card-title {
+  font-family: 'Cinzel Decorative', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  line-height: 1.25;
+}
+
+.card-icon-wrapper {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.game-icon {
+  width: 200px;
+  height: auto;
+}
+
+.nj-map-icon {
+  height: 160px;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(86, 119, 146, 0.15));
+}
+
+.card-description {
+  font-family: 'Legend', 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-top: auto;
+  letter-spacing: 0.01em;
+}
+
+/* ==================== UNTOUCHED GAME & MAP CSS ==================== */
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 1.2rem}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.card{border:2px solid var(--navy);border-radius:16px;padding:1.5rem;background:#FFFFFF}
+.card svg{width:56px;height:56px}.card p{color:var(--gray)}
+.btn{background:var(--sky);color:var(--navy);border:2px solid var(--navy);border-radius:999px;padding:.6em 1.4em;font-weight:700}
+.btn:hover{background:var(--navy);color:#FFFFFF}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:#FFFFFF}
+
+/* game */
+.stage{--ink:#567792;--glass:rgba(255, 255, 255, .62);--deco:#567792;color:var(--ink);border:2px solid var(--navy);border-radius:18px;min-height:540px;padding:1.2rem;position:relative;overflow:hidden;isolation:isolate}
+.stage>*{position:relative;z-index:2;animation:fade .45s ease both}
+.stage>.decor{position:absolute;inset:0;z-index:0;pointer-events:none;animation:none}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.stage h3{margin:.2em 0}
+.glass{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255, 255, 255, .45);border-radius:18px;padding:1rem 1.2rem;color:var(--ink);box-shadow:0 10px 30px rgba(86, 119, 146, .22)}
+.th-hub,.th-entry{background:linear-gradient(160deg,#FFFFFF,#D5E2EE)}
+.th-pharma{--deco:#567792;background:linear-gradient(135deg,#FFFFFF,#D5E2EE 60%,#B9D2E7)}
+.th-agri{--ink:#567792;--deco:#567792;background:radial-gradient(circle at 85% 8%,rgba(255, 255, 255, .85),transparent 38%),linear-gradient(160deg,#EEEEEE,#B9D2E7 70%,#B9D2E7)}
+.th-env{--ink:#FFFFFF;--glass:rgba(86, 119, 146, .66);--deco:#B9D2E7;background:repeating-radial-gradient(circle at 72% 28%,transparent 0 26px,rgba(185, 210, 231, .13) 26px 27px),linear-gradient(160deg,#567792,#567792 70%)}
+.th-marine{--ink:#FFFFFF;--glass:rgba(86, 119, 146, .55);--deco:#B9D2E7;background:linear-gradient(180deg,#567792,#567792)}
+.th-marine:before{content:"";position:absolute;inset:-20%;z-index:0;background:radial-gradient(ellipse 140px 60px at 20% 20%,rgba(185, 210, 231, .22),transparent),radial-gradient(ellipse 200px 80px at 70% 35%,rgba(185, 210, 231, .18),transparent),radial-gradient(ellipse 160px 70px at 45% 60%,rgba(185, 210, 231, .15),transparent);animation:caus 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes caus{to{transform:translate(8%,6%) scale(1.15)}}
+.th-detect{--ink:#FFFFFF;--glass:rgba(86, 119, 146, .7);--deco:#567792;background:linear-gradient(rgba(86, 119, 146, .16) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(86, 119, 146, .16) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(160deg,#567792,#567792)}
+.decor .fl{position:absolute;width:46px;fill:none;stroke:var(--deco);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.38;animation:float 7s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-26px) rotate(12deg)}}
+.th-detect .decor:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:repeating-linear-gradient(90deg,rgba(86, 119, 146, .35) 0 6px,transparent 6px 22px);animation:viz 2.4s ease-in-out infinite alternate;transform-origin:bottom;opacity:.5}
+@keyframes viz{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+.scene{display:flex;gap:1rem;align-items:flex-end;margin:1rem 0}
+.spr{width:110px;flex:none;filter:drop-shadow(0 6px 8px rgba(86, 119, 146, .25))}
+.bubble{position:relative;max-width:660px}
+.bubble:before{content:"";position:absolute;left:-12px;bottom:28px;border:10px solid transparent;border-right-color:rgba(255, 255, 255, .55);border-left:0}
+.ans{display:grid;gap:.5rem;margin-top:.8rem}
+.ans button{text-align:left;background:rgba(255, 255, 255, .88);color:var(--navy);border:2px solid var(--navy);border-radius:12px;padding:.6em .9em;transition:transform .15s,background .15s}
+.ans button:hover{background:var(--sky);transform:translateX(4px)}
+.hud{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem}
+.count{font-weight:700;background:var(--navy);color:#FFFFFF;border-radius:999px;padding:.3em 1em;letter-spacing:.05em}
+
+/* entry */
+.world{position:relative;aspect-ratio:2/1;min-height:300px;border-radius:12px;overflow:hidden;background:linear-gradient(#D5E2EE,#EEEEEE 60%);border:1px solid var(--line)}
+.ground{position:absolute;left:0;right:0;top:60%;bottom:0;background:linear-gradient(#B9D2E7,#EEEEEE)}
+.bldg{position:absolute;left:28%;width:44%;top:3%}.bldg svg{width:100%;display:block}
+.npc,.pl{position:absolute;width:9%;min-width:44px;max-width:80px;transform:translate(-50%,-100%)}
+.npc .spr,.pl .spr{width:100%}
+.pl.walk .spr{animation:bob .28s infinite alternate}
+@keyframes bob{to{transform:translateY(-5px)}}
+.say{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:min(440px,92%);z-index:5;font-size:.95rem}
+.hint{position:absolute;left:10px;bottom:10px;font-size:.85rem;padding:.5rem .8rem;z-index:5}
+.dpad{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;align-items:center}
+.dpad button{min-width:44px;min-height:44px}
+
+/* hub */
+.bld{display:grid;gap:6px;background:rgba(86, 119, 146, .08);padding:8px;border:3px solid var(--navy);border-radius:14px;background:#EEEEEE}
+.floor{display:grid;grid-template-columns:44px 1fr 1fr;gap:6px;align-items:stretch}
+.floor>i{font-style:normal;font-weight:700;background:var(--navy);color:#FFFFFF;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:.8rem}
+.room{position:relative;overflow:hidden;min-height:92px;border:2px solid var(--navy);border-radius:10px;font-weight:700;text-align:left;padding:.6rem .8rem;color:var(--ink);transition:transform .2s,box-shadow .2s;isolation:isolate}
+.room:hover,.room:focus-visible,.room.sel{transform:translateY(-3px);box-shadow:0 8px 18px rgba(86, 119, 146, .35)}
+.room.sel{outline:3px solid var(--sky)}
+.room .fl{position:absolute;right:8px;top:8px;width:38px;fill:none;stroke:var(--deco);stroke-width:2;opacity:.6;z-index:-1}
+.room .rl{background:var(--glass);backdrop-filter:blur(6px);padding:.15em .6em;border-radius:8px}
+.lobby{border:2px dashed var(--gray);border-radius:10px;color:var(--gray);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.mgr{margin-top:1rem;min-height:140px}
+.mgr .glass{background:rgba(255, 255, 255, .7);color:var(--navy)}
+
+/* TOP-DOWN PIXEL CAMPUS */
+.campus{position:relative;width:100%;aspect-ratio:1278/1024;min-height:360px;max-height:76vh;overflow:hidden;border:4px solid #567792;border-radius:8px;background:#567792 url("assets/backgrounds/biotech-campus-background.png") center/100% 100% no-repeat;image-rendering:pixelated;box-shadow:0 8px 0 #567792;touch-action:pan-y}
+.campus:before{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 3px #D5E2EE66}
+.campus-building{position:absolute;z-index:2;width:19%;height:18%;padding:0;border:2px dashed transparent;background:transparent;color:transparent;text-shadow:none;box-shadow:none;cursor:pointer;border-radius:4px}
+.campus-building:before,.campus-building small{display:none}
+.campus-building:hover,.campus-building:focus-visible,.campus-building.near{border:3px dashed #EEEEEE;background:#FFFFFF22;outline:2px solid #567792}
+.campus-building[data-room="0"] { left: 8%; top: 15%; width: 22%; height: 22%; }  /* Pharma */
+.campus-building[data-room="1"] { left: 70%; top: 15%; width: 23%; height: 22%; } /* Agri & Env */
+.campus-building[data-room="2"] { left: 14%; top: 43%; width: 24%; height: 22%; } /* Regulatory */
+.campus-building[data-room="3"] { left: 69%; top: 44%; width: 23%; height: 20%; } /* Detection (Middle Right) */
+.campus-building[data-room="4"] { left: 50%; top: 68%; width: 23%; height: 21%; } /* Marine (Bottom Right) */
+.campus-sign{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);background:#567792e8;color:#FFFFFF;border:2px solid #B9D2E7;padding:.35rem .65rem;font-weight:900;text-align:center;white-space:nowrap;pointer-events:none;text-shadow:1px 1px #567792}
+.campus-player{position:absolute;left:50%;top:61%;width:clamp(24px,4.5%,46px);aspect-ratio:42/52;height:auto;z-index:4;transform:translate(-50%,-50%);image-rendering:pixelated;pointer-events:none;filter:drop-shadow(0 2px 0 #567792)}
+.campus-player img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.campus-player.walking img{animation:sprite-step .18s steps(2,end) infinite alternate}
+@keyframes sprite-step{from{translate:0 0;scale:1 1}to{translate:0 -3px;scale:1 .96}}
+.campus-hud{display:flex;justify-content:space-between;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.5rem 0}
+.art-slot-note{padding:.6rem .8rem;border:1px dashed #567792;background:#EEEEEE;border-radius:6px;font-size:.9rem}
+
+/* team & results */
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}
+.role{background:rgba(255, 255, 255, .88);color:var(--navy);border:2px solid var(--navy);border-radius:12px;padding:.8rem .4rem;font-size:.9rem;font-weight:700;min-height:78px;transition:transform .15s}
+.role:hover{background:#EEEEEE;transform:translateY(-2px)}.role.in{background:var(--sky)}
+.prof{max-width:760px;margin:1rem auto}
+.best{font-family:'Cinzel Decorative',serif;font-size:1.5rem}
+.pct{display:grid;grid-template-columns:minmax(120px,210px) 1fr 44px;gap:.6rem;align-items:center;margin:.35rem 0;font-size:.9rem}
+.bar2{height:14px;background:rgba(255, 255, 255, .7);border-radius:8px;border:1px solid var(--navy);overflow:hidden}.bar2 i{display:block;height:100%;background:var(--sky);transition:width .8s ease}
+.stage .btn.alt{color:var(--navy)}
+.note{font-size:.85rem;color:var(--gray);font-style:italic}.stage .note{color:inherit;opacity:.85}
+.stage ul{margin:.3rem 0 .6rem;padding-left:1.2rem}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(86, 119, 146, .6);display:flex;align-items:center;justify-content:center;z-index:50;padding:1rem}
+.modal>div{background:#FFFFFF;border:3px solid var(--navy);border-radius:16px;padding:1.4rem;max-width:480px;width:100%;max-height:90vh;overflow:auto}
+
+/* map */
+.maplay{display:grid;grid-template-columns:260px 1fr;gap:1.5rem}
+fieldset{border:2px solid var(--navy);border-radius:12px;margin:0 0 1rem;padding:.6rem .9rem}
+legend{font-weight:700;padding:0 .4rem}
+fieldset label{display:block;font-size:.95rem}
+.cty{max-height:200px;overflow:auto}
+#nj{width:100%;max-height:78vh;background:#FFFFFF;border:2px solid var(--navy);border-radius:16px}
+.c{fill:#EEEEEE;stroke:var(--navy);stroke-width:1.2;stroke-linejoin:round}.c:hover{fill:#B9D2E7}.c.on{fill:var(--sky)}
+.pin{cursor:pointer}.pin:focus-visible path{stroke:var(--navy);stroke-width:3}
+.cl{font:700 9px Lato,sans-serif;fill:var(--navy);pointer-events:none;paint-order:stroke;stroke:#FFFFFF;stroke-width:2px;text-anchor:middle}
+
+@media(max-width:760px){
+  .cards,.maplay{grid-template-columns:1fr}
+  .scene{flex-direction:column;align-items:flex-start}
+  .bubble:before{display:none}
+  .spr{width:80px}
+  .roles{gap:.35rem}
+  .role{font-size:.7rem;padding:.4rem .2rem;min-height:66px}
+  .world{aspect-ratio:1/1}
+  .bldg{left:12%;width:76%}
+  .pct{grid-template-columns:1fr 1fr 40px}
+  .floor{grid-template-columns:30px 1fr 1fr}
+  .room{font-size:.8rem;min-height:84px}
+  .stage{padding:.7rem}
+}
+
+/* PIXEL-ART LAYER */
+:root{--pixel-ink:#567792;--pixel-grass:#B9D2E7;--pixel-grass-dark:#567792;--pixel-path:#D5E2EE;--pixel-water:#B9D2E7}
+.stage{border-radius:12px;image-rendering:pixelated}
+.world{background-color:#B9D2E7;background-image:linear-gradient(90deg,rgba(86, 119, 146, .12) 2px,transparent 2px),linear-gradient(rgba(86, 119, 146, .12) 2px,transparent 2px);background-size:32px 32px;box-shadow:inset 0 0 0 5px rgba(255, 255, 255, .35)}
+.ground{top:60%;background-color:var(--pixel-grass);background-image:linear-gradient(90deg,rgba(86, 119, 146, .18) 2px,transparent 2px),linear-gradient(rgba(86, 119, 146, .18) 2px,transparent 2px);background-size:24px 24px}
+.bldg{filter:drop-shadow(5px 6px 0 rgba(86, 119, 146, .2))}
+.bldg svg{shape-rendering:crispEdges}
+.npc,.pl{width:clamp(44px,7%,72px);image-rendering:pixelated}
+.spr{image-rendering:pixelated;filter:drop-shadow(3px 4px 0 rgba(86, 119, 146, .22))}
+.room{border-radius:4px;border-width:3px;box-shadow:inset -4px -4px 0 rgba(86, 119, 146, .12)}
+.room:hover,.room:focus-visible,.room.sel{transform:translateY(-2px);box-shadow:4px 6px 0 rgba(86, 119, 146, .22)}
+.role{border-radius:5px;box-shadow:inset -3px -3px 0 rgba(86, 119, 146, .1)}
+.stage .glass{border-radius:8px}
+.art-slot-note{border:2px dashed currentColor;padding:.65rem .8rem;border-radius:5px;font-size:.85rem;font-weight:700;margin:.75rem 0}
+
+@font-face {
+  font-family: "BioquestPixel";
+  src: url("assets/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+  font-display: swap;
+}
+#game, #game .game-hud, #game .dialogue, #game .quiz-panel,
+#game .campus, #game .campus-hud, #game .campus-building,
+#game .dpad, #game .count {
+  font-family: "BioquestPixel", "Courier New", monospace;
+}
+
+/* Map layout correction: preserve the tall New Jersey county coordinate plane. */
+#nj {
+  width: 100%;
+  height: auto;
+  min-height: 640px;
+  aspect-ratio: 500 / 949;
+  overflow: visible;
+}
+#nj #nj-map-image {
+  image-rendering: auto;
+}
+#nj .pin-group {
+  pointer-events: all;
+}
+
+/* Music attribution */
+.music-credit { text-align: center; font-size: 0.8rem; padding: 0.6rem 1rem 1rem; opacity: 0.85; }
+
+
+
+/* ================================================================
+   BIOQUEST FEEDBACK PASS — shared five-color palette and clear UI
+   Palette: #FFFFFF #EEEEEE #D5E2EE #B9D2E7 #567792
+   ================================================================ */
+:root {
+  --sidebar-blue:#567792;--button-hover-blue:#567792;
+  --bg-gradient-start:#D5E2EE;--bg-gradient-mid:#FFFFFF;--bg-gradient-end:#B9D2E7;
+  --text-white:#FFFFFF;--text-dark:#567792;--sky:#B9D2E7;--navy:#567792;
+  --gray:#567792;--white:#FFFFFF;--line:#B9D2E7;--soft:#EEEEEE;
+  --pixel-ink:#567792;--pixel-grass:#B9D2E7;--pixel-grass-dark:#567792;
+  --pixel-path:#EEEEEE;--pixel-water:#D5E2EE;
+}
+:focus-visible{outline:3px solid #567792;outline-offset:3px}
+body{background:#D5E2EE;color:#567792}
+.top-app-nav{background:#567792;box-shadow:0 4px 0 #B9D2E7}
+.top-app-nav .nav-btn:hover{background:#B9D2E7;color:#567792}
+.main-content,.home-container{background:linear-gradient(135deg,#D5E2EE,#FFFFFF 58%,#B9D2E7)}
+.sidebar,.home-header,.feature-card{background:#567792;color:#FFFFFF}
+.feature-card{border:3px solid #B9D2E7;border-radius:12px;box-shadow:7px 7px 0 #B9D2E7}
+.feature-card:hover{box-shadow:10px 10px 0 #B9D2E7}
+.feature-card .card-description{color:#FFFFFF}
+.btn-get-started,.btn{background:#B9D2E7;color:#567792;border:2px solid #567792;border-radius:5px;box-shadow:3px 3px 0 #567792}
+.btn:hover,.btn-get-started:hover{background:#567792;color:#FFFFFF;box-shadow:2px 2px 0 #B9D2E7}
+.btn.alt{background:#FFFFFF;color:#567792}
+.wrap{max-width:1360px;padding:2rem 1.25rem 3rem}
+.wrap>h2{margin-bottom:.6rem;line-height:1.25}
+.stage{--ink:#567792;--glass:#FFFFFF;--deco:#567792;background:#D5E2EE;color:#567792;border:3px solid #567792;border-radius:8px;box-shadow:6px 6px 0 #B9D2E7}
+.th-entry,.th-hub,.th-pharma,.th-agri,.th-env,.th-marine,.th-detect{--ink:#567792;--glass:#FFFFFF;--deco:#567792;background:#D5E2EE}
+.th-marine:before,.th-detect .decor:after{display:none}
+.glass,.stage .glass{background:#FFFFFF;border:2px solid #B9D2E7;color:#567792;box-shadow:4px 4px 0 #B9D2E7;backdrop-filter:none}
+.ans button,.role{background:#FFFFFF;color:#567792;border:2px solid #567792;border-radius:5px}
+.ans button:hover,.role:hover,.role.in{background:#B9D2E7;color:#567792}
+.count,.floor>i{background:#567792;color:#FFFFFF}
+.note{color:#567792}
+.world{background:#D5E2EE}.ground{background:#B9D2E7}
+.stage .decor .fl{opacity:.14}
+.campus{position:relative;width:100%;aspect-ratio:1024/820;min-height:0;max-height:none;overflow:hidden;border:4px solid #567792;border-radius:4px;background:#D5E2EE url("assets/backgrounds/biotech-campus-background.png") center/100% 100% no-repeat;image-rendering:pixelated;box-shadow:5px 5px 0 #B9D2E7;touch-action:pan-y}
+.campus:before{box-shadow:inset 0 0 0 3px #B9D2E7}
+.campus-building,.campus-building[data-room]{position:absolute;width:auto!important;height:auto!important;min-width:68px;max-width:15%;left:0;top:0;padding:2px 4px;transform:translate(-50%,-50%);color:#FFFFFF;background:#567792;border:2px solid #FFFFFF;border-radius:0;box-shadow:2px 2px 0 #567792;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:700;line-height:1.2;white-space:normal;cursor:pointer;z-index:3;image-rendering:pixelated}
+.campus-building span{display:block;pointer-events:none}
+.campus-building:before,.campus-building small{display:none}
+.campus-building:hover,.campus-building:focus-visible,.campus-building.near{color:#567792;background:#FFFFFF;border:2px dashed #567792;box-shadow:0 0 0 3px #B9D2E7;outline:none}
+.campus-player{z-index:6}
+.campus-hud{background:#EEEEEE;border:2px solid #B9D2E7;border-radius:5px;padding:.6rem .8rem;font-weight:700}
+#campus-msg{flex:1;min-width:240px}
+.path-steps{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0}
+.path-step{border:2px solid #567792;background:#FFFFFF;color:#567792;padding:.5rem .8rem;border-radius:3px;font-weight:700}
+.path-step[aria-pressed="true"],.path-step:hover{background:#567792;color:#FFFFFF}
+.career-step-detail{padding:.85rem 1rem;border-left:5px solid #567792;background:#EEEEEE;min-height:3rem}
+.card-icon-wrapper img{max-height:150px;max-width:100%;object-fit:contain}
+.map-intro{max-width:78ch;margin:.25rem 0 1.3rem;line-height:1.55}
+.maplay{display:grid;grid-template-columns:minmax(210px,250px) minmax(300px,1fr) minmax(255px,340px);gap:1rem;align-items:start}
+.map-filters,.opportunity-panel{background:#FFFFFF;border:2px solid #567792;border-radius:7px;padding:1rem;box-shadow:4px 4px 0 #B9D2E7}
+.map-filters fieldset{border:2px solid #B9D2E7;border-radius:4px;margin:0 0 .8rem;padding:.6rem .7rem}
+.map-filters fieldset label{display:flex;gap:.45rem;align-items:flex-start;padding:.25rem 0;font-size:.9rem;line-height:1.3;cursor:pointer}
+.map-filters fieldset input{accent-color:#567792;margin-top:.13rem}
+.map-filters .cty{max-height:210px}
+.filter-help{font-size:.8rem;line-height:1.45;background:#EEEEEE;border-left:3px solid #567792;padding:.65rem;margin:.9rem 0}
+.map-canvas-wrap{background:#EEEEEE;padding:.8rem;border:2px solid #567792;border-radius:7px;box-shadow:4px 4px 0 #B9D2E7;min-width:0;text-align:center}
+#nj{display:block;overflow:hidden;margin:0 auto;padding:0;width:100%;height:auto;min-height:0;max-height:78vh;aspect-ratio:560/900;background:#EEEEEE;border:0;border-radius:0}
+#nj .county-shape{fill:#D5E2EE;stroke:#567792;stroke-width:1.5;stroke-linejoin:round;cursor:pointer;transition:fill .12s ease}
+#nj .county-group.no-results .county-shape{fill:#EEEEEE}
+#nj .county-shape:hover,#nj .county-shape:focus-visible{fill:#B9D2E7;stroke-width:2.7;outline:none}
+#nj .county-group.is-selected .county-shape{fill:#B9D2E7;stroke-width:3}
+#nj .county-group.is-selected .county-shape:hover{fill:#FFFFFF}
+#nj .county-count{pointer-events:none}
+#nj .county-count circle{fill:#567792;stroke:#FFFFFF;stroke-width:2}
+#nj .county-count text{fill:#FFFFFF;font-size:12px;font-family:'BioquestPixel',monospace;font-weight:700}
+.map-legend{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.35rem .7rem;font-size:.75rem;padding:.8rem .25rem .15rem;color:#567792;line-height:1.45}
+.map-legend-swatch{display:inline-block;width:16px;height:16px;background:#B9D2E7;border:2px solid #567792}
+.map-legend-count{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px;border:2px solid #FFFFFF;border-radius:50%;background:#567792;color:#FFFFFF;font:700 12px 'BioquestPixel',monospace}
+.opportunity-panel{min-width:0;max-height:calc(78vh + 115px);display:flex;flex-direction:column}
+.opp-panel-top{display:flex;align-items:start;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+.opp-panel-top h3{font-size:1.1rem;line-height:1.4}
+.opp-panel-top .btn{font-size:.8rem;padding:.35rem .55rem;box-shadow:none}
+#opportunity-subtitle{padding:.65rem 0}
+.opportunity-list{overflow-y:auto;overscroll-behavior:contain;max-height:60vh;display:grid;gap:.65rem}
+.opp-card{background:#EEEEEE;border:1px solid #B9D2E7;border-left:4px solid #567792;padding:.8rem;word-wrap:break-word}
+.opp-card h4{font-size:.96rem;margin:.28rem 0}
+.opp-type{font-size:.7rem;letter-spacing:.03em;text-transform:uppercase;font-weight:700}
+.opp-loc{font-size:.82rem;margin-bottom:.35rem}
+.opp-card ul{font-size:.84rem;padding-left:1.2rem;margin:.4rem 0}
+.opp-card a{font-size:.82rem;color:#567792;font-weight:700;text-decoration:underline}
+.opp-unverified{display:block;font-size:.74rem}
+.map-empty{background:#D5E2EE;padding:1rem;line-height:1.5}
+.opp-disclaimer{font-size:.74rem;border-top:1px solid #B9D2E7;padding-top:.65rem;margin-top:.7rem;line-height:1.4}
+.music-credit{background:#EEEEEE;color:#567792}
+.modal{background:#567792aa}.modal>div{background:#FFFFFF;border:3px solid #567792;border-radius:7px}
+@media(max-width:1120px){.maplay{grid-template-columns:minmax(200px,245px) minmax(320px,1fr)}.opportunity-panel{grid-column:2;max-height:none}.opportunity-list{max-height:370px}}
+@media(max-width:720px){.maplay{grid-template-columns:1fr}.map-filters,.opportunity-panel{grid-column:auto}.opportunity-panel{max-height:none}.opportunity-list{max-height:420px}.map-canvas-wrap{max-width:600px;margin:auto}.campus-building{max-width:20%;min-width:40px;font-size:8px}.top-app-nav{padding:.7rem;flex-wrap:wrap;gap:.6rem}.top-app-nav nav{flex-wrap:wrap}.top-app-nav .nav-brand{font-size:1.4rem}.wrap{padding:1rem .7rem 2rem}.stage{padding:.7rem}}
+@media(prefers-reduced-motion:reduce){.stage>*,.feature-card,.btn,.campus-player img{animation:none!important;transition:none!important}}
+
+/* Accessibility adjustments within the exact palette */
+.stage,.th-entry,.th-hub,.th-pharma,.th-agri,.th-env,.th-marine,.th-detect{background:#FFFFFF}
+.campus-hud,.map-canvas-wrap,.career-step-detail{background:#FFFFFF}
+.btn,.btn-get-started{background:#FFFFFF;color:#567792}
+.btn:hover,.btn-get-started:hover{background:#567792;color:#FFFFFF}
+.map-legend{background:#FFFFFF}
+#status{color:#567792}
+[role="button"]:focus-visible{outline:3px solid #567792;outline-offset:3px}
+
+/* November refinement: original game artwork and player colors, without changing Opportunities Map. */
+#game .campus{background-color:#153e5a;background-image:url("assets/backgrounds/biotech-campus-background.png");border-color:#18324b;box-shadow:0 6px 0 #193d4b}
+#game .campus-player{filter:drop-shadow(0 2px 0 #173c4d)}
+/* Keep entry labels readable without covering building entrances or blocking movement. */
+#game .campus-building{max-width:12%;min-width:50px;padding:2px 3px;font-size:clamp(8px,.8vw,11px);background:#18324be8;color:#fff;border:1px solid #c4ecff;box-shadow:1px 2px 0 #173c4d}
+#game .campus-building:hover,#game .campus-building.near,#game .campus-building:focus-visible{color:#18324b;background:#fff36a;border-color:#18324b}
+.brand-logo{height:42px;width:46px;object-fit:contain;flex:none;vertical-align:middle}
+.nav-brand,.header-brand{display:flex;align-items:center;gap:.55rem}
+.hero-logo{display:block;width:clamp(110px,17vw,190px);height:auto;object-fit:contain;margin:0 auto 1.1rem;filter:drop-shadow(0 3px 8px #56779230)}
+.role:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:600px){.brand-logo{height:34px;width:36px}.hero-logo{width:115px}}
+
+/* Nov 2: clearer home branding (uses the user's exact unmodified PNG). */
+#home .hero-logo{display:block;width:clamp(250px,29vw,390px);height:auto;max-height:none;margin:0 auto -.65rem;filter:drop-shadow(0 3px 5px #56779233)}
+#home .content-wrapper{gap:1rem}
+#home .main-title{margin:0}
+#home .home-header{justify-content:center;min-height:92px}
+#home .home-header .header-brand{display:flex;align-items:center;justify-content:center;gap:1.1rem}
+#home .home-header .brand-logo{width:90px;height:80px;object-fit:contain}
+#home .home-header .header-brand span{font-size:clamp(1.4rem,2.4vw,2rem)}
+/* Center and group campus title, instructions, and status instead of stretching them apart. */
+#game .campus-title-hud{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.65rem;margin:0 auto 1rem}
+#game .campus-title-hud h3{font-size:clamp(1.15rem,2.2vw,1.75rem);line-height:1.35;margin:0}
+#game .campus-title-hud .count{max-width:100%;white-space:normal;text-align:center;line-height:1.5;border-radius:5px}
+#game .campus-hud{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.6rem;text-align:center}
+#game #campus-msg{flex:1 1 310px;min-width:0}
+#game .campus-help{text-align:center;line-height:1.5;margin:.75rem auto .1rem;max-width:72ch}
+#game .entry-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.8rem;margin:0 auto .8rem}
+/* The mute button applies to Game and Map only; no map styling is altered. */
+.music-toggle{font:700 .85rem 'Montserrat',sans-serif;background:#FFFFFF;color:#567792;border:2px solid #B9D2E7;border-radius:6px;cursor:pointer;padding:.55rem .8rem;white-space:nowrap;margin-left:auto}
+.music-toggle:hover,.music-toggle:focus-visible{background:#D5E2EE;outline-offset:2px}
+.music-toggle[aria-pressed=true]{background:#B9D2E7;color:#567792}
+@media(max-width:640px){#home .hero-logo{width:270px}#home .home-header .brand-logo{width:72px;height:66px}.music-toggle{margin-left:0}#game .campus-title-hud .count{font-size:.8rem}}
+
+/* Marine assessment: preserve Bioquest styling while showing source competency breakdown. */
+.marine-point-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+.marine-point-tags span{background:#D5E2EE;color:#243d53;padding:.5rem .8rem;border-radius:.6rem;font-weight:700}
+.marine-feedback .btn{margin-top:1rem}
+.marine-score{display:grid;grid-template-columns:minmax(125px,1.2fr) minmax(60px,2fr) 55px;align-items:center;gap:.7rem;margin:.7rem 0;font-size:.9rem}
+.marine-score .bar2{min-width:0}
+.marine-results{margin:1.5rem 0}
+.marine-results details{margin-top:1.2rem}
+.marine-results summary{cursor:pointer;font-weight:700}
+.marine-results details p{padding:.6rem 0;border-bottom:1px solid #B9D2E7}
+@media(max-width:540px){.marine-score{grid-template-columns:1fr 1fr 52px;font-size:.75rem;gap:.35rem}}
