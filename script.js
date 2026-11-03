@@ -149,9 +149,9 @@ const decor=s=>`<div class="decor" aria-hidden="true">${Array.from({length:8},(_
 
 const spr = (src, l) => `<img class="spr sprite-placeholder" src="${src}" alt="${l}" draggable="false">`;
 
-const NATALIE     = spr('assets/sprites/director.png', 'Natalie, facility director');
-const PLAYER      = spr('assets/sprites/character-placeholder.svg', 'You');
-const MANAGER     = spr('assets/sprites/manager.png', 'Manager');
+const NATALIE = spr('director.png', 'Natalie, facility director');
+const PLAYER = spr('character-placeholder.svg', 'You');
+const MANAGER = spr('manager.png', 'Manager');
 
 const say = (sp, who, txt, extra = '') => `<div class="scene">${sp}<div class="bubble glass"><b>${who}</b><p>${txt}</p>${extra}</div></div>`;
 
@@ -311,8 +311,7 @@ function hub(){
   <div class="campus-hud"><span id="campus-msg" aria-live="polite">Stay on the wide roads; water, grass and buildings are off limits.</span><button class="btn alt" data-g="entry">Return to entrance</button></div>
   <div class="campus" id="campus" tabindex="0" aria-label="Pixel-art campus with walkable paths, building collisions and seven interactable locations.">
     ${CAMPUS_LOCATIONS.map((b,i)=>`<button class="campus-building" style="left:${b.x}%;top:${b.y}%" data-campus="${i}" aria-label="Interact with ${b.name}; stand nearby" title="${b.name}"><span>${b.short}</span></button>`).join('')}
-    <div class="campus-player" id="campus-player" style="left:${CP.x}%;top:${CP.y}%"><img src="assets/sprites/character-placeholder.svg" alt="Player character"></div>
-  </div>
+<div class="campus-player" id="campus-player" style="left:${CP.x}%;top:${CP.y}%"><img src="character-placeholder.svg" alt="Player character"></div>  </div>
   <p class="campus-help note">Use WASD / arrow keys to move. Press E when close to a building entrance. Only the broad roads are walkable. Water, narrow trails, grass, and buildings are blocked.</p>`);
 
   const canvas=$('#campus'),player=$('#campus-player');
